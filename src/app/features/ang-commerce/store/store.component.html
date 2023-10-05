@@ -1,0 +1,23 @@
+<main>
+  <section class="products-search">
+    <h4>Filters</h4>
+    <form autocomplete="off">
+      <input 
+        [(ngModel)]="productFilter.productName" 
+        type="text" 
+        name="productNameSearch"
+        (ngModelChange)="onFilterChange()" 
+        placeholder="Search for products"/>
+      <select 
+        [(ngModel)]="productFilter.categoryId" 
+        (ngModelChange)="onFilterChange()" name="product-categories">
+        <option [value]="0">All</option>
+        <option [value]="category.id" *ngFor="let category of categories">{{category.categoryDescription}}</option>
+      </select>
+    </form>
+  </section>
+  <h4>Products</h4>
+  <section class="products-grid">
+    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+  </section>
+</main>

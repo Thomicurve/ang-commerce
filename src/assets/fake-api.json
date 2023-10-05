@@ -1,0 +1,53 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Pc Gamer",
+      "price": 249.99,
+      "imageUrl": "https://app.contabilium.com/files/explorer/16277/Productos-Servicios/concepto-9303097.jpg",
+      "description": "Pc Gamer really god",
+      "categories": [
+        {
+          "id": 2,
+          "categoryDescription": "Computers"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pc Gamer 2",
+      "price": 549.99,
+      "imageUrl": "https://mla-s1-p.mlstatic.com/777167-MLA46258832185_062021-F.jpg",
+      "description": "Pc Gamer really really god",
+      "categories": [
+        {
+          "id": 2,
+          "categoryDescription": "Computers"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "The principito",
+      "price": 69.99,
+      "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_664773-MLA50011960367_052022-O.webp",
+      "description": "The principito book",
+      "categories": [
+        {
+          "id": 1,
+          "categoryDescription": "Books"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categoryDescription": "Books"
+    },
+    {
+      "id": 2,
+      "categoryDescription": "Computers"
+    }
+  ]
+}

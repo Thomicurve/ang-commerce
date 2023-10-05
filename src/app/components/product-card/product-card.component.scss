@@ -1,0 +1,44 @@
+::ng-deep {
+  .product-card {
+    background: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    height: 300px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      color: #000;
+    }
+
+    &__image {
+      img {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+
+  .product-card-actions {
+    display: flex;
+    column-gap: 10px;
+    button {
+      padding: 5px 10px;
+    }
+  }
+
+  .product-card-description {
+    font-size: 0.8rem;
+    margin: 10px 0px;
+
+  }
+
+  .product-card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 10px 0px;
+  }
+}
