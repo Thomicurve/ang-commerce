@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../services/product.service';
-import { Product } from '../interfaces/products.interface';
-import { ProductFilter } from '../interfaces/product-filter.interface';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../interfaces/products.interface';
+import { ProductFilter } from '../../interfaces/product-filter.interface';
 import { BehaviorSubject, debounceTime } from 'rxjs';
-import { CategoryService } from '../services/category.service';
-import { Category } from '../interfaces/category.interface';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../interfaces/category.interface';
 
 @Component({
   selector: 'app-store',

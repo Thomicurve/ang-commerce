@@ -9,7 +9,7 @@
     <p class="product-card-description">{{product.price | currency:'USD'}}</p>
   </div>
   <div class="product-card-actions">
-    <button class="btn btn-primary">Add to cart</button>
+    <button (click)="addCartProduct()" class="btn btn-primary">Add to cart</button>
     <button>
       <a routerLink="/product/:id">View detail</a>
     </button>

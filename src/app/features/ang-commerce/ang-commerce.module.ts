@@ -2,20 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AngCommerceRoutingModule } from './ang-commerce-routing.module';
-import { StoreComponent } from './store/store.component';
 import { ProductCardComponent } from 'src/app/components/product-card/product-card.component';
 import { FormsModule } from '@angular/forms';
+import { StoreComponent } from './pages/store/store.component';
 
 
 @NgModule({
   declarations: [
-    StoreComponent
+    StoreComponent,
   ],
   imports: [
     CommonModule,
     AngCommerceRoutingModule,
     ProductCardComponent,
-    FormsModule
+    FormsModule,
   ]
 })
 export class AngCommerceModule { }

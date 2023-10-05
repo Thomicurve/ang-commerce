@@ -1,0 +1,26 @@
+<div (click)="dialog.show()" class="cart-container">
+    <span class="material-symbols-outlined">
+        shopping_cart
+    </span>
+    <span class="cart-count" *ngIf="(cartItemsCount$ | async)">
+        {{ cartItemsCount$ | async }}
+    </span>
+</div>
+<dialog [open]="false" #dialog>
+    <p>Cart detail</p>
+    <div *ngIf="(cartItems$ | async)?.length; else noItems" class="cart-detail-container">
+        <ul>
+            <li *ngFor="let item of cartItems$ | async">
+                <p>{{item.name}}</p>
+                <p>{{item.price | currency}}</p>
+                <button (click)="removeItem(item)">X</button>
+            </li>
+        </ul>
+        <button (click)="buy()">Buy</button>
+    </div>
+    <ng-template #noItems>
+        <p>No items on cart</p>
+    </ng-template>
+    <button (click)="dialog.close()">Close</button>
+
+</dialog>
