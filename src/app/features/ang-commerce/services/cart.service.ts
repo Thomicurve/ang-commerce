@@ -29,4 +29,10 @@ export class CartService {
         items.splice(index, 1);
         this.cartItems.next(items);
     }
+
+    getTotalPrice(): Observable<number> {
+        return this.cartItems$.pipe(
+            map(items => items.reduce((acc, item) => acc + item.price, 0))
+        )
+    }
 }

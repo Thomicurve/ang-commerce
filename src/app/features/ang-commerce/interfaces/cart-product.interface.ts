@@ -1,6 +1,8 @@
 export interface CartProudct {
-    id: string;
+    id: number;
     name: string;
+    imageUrl: string;
+    description: string;
     price: number;
     quantity: number;
 }

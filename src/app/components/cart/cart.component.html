@@ -6,21 +6,26 @@
         {{ cartItemsCount$ | async }}
     </span>
 </div>
-<dialog [open]="false" #dialog>
-    <p>Cart detail</p>
+
+<dialog id="dialog" #dialog>
+    <h2>Cart detail</h2>
     <div *ngIf="(cartItems$ | async)?.length; else noItems" class="cart-detail-container">
         <ul>
-            <li *ngFor="let item of cartItems$ | async">
+            <li class="cart-item" *ngFor="let item of cartItems$ | async">
+                <button class="cart-item__remove" (click)="removeItem(item)" aria-label="close">❌</button>
+                <img class="cart-item__image" [src]="item.imageUrl" [alt]="item.description">
                 <p>{{item.name}}</p>
-                <p>{{item.price | currency}}</p>
-                <button (click)="removeItem(item)">X</button>
+                <p>{{item.description}}</p>
+                <p class="cart-item__price">{{item.price | currency}}</p>
             </li>
         </ul>
-        <button (click)="buy()">Buy</button>
+        <div class="footer-cart">
+            <p>Total: {{totalCartPrice$ | async | currency}}</p>
+            <button class="footer-cart__buy" (click)="buy()">Buy</button>
+        </div>
     </div>
     <ng-template #noItems>
         <p>No items on cart</p>
     </ng-template>
-    <button (click)="dialog.close()">Close</button>
-
+    <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
 </dialog>

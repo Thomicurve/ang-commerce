@@ -14,11 +14,14 @@ import { CartService } from 'src/app/features/ang-commerce/services/cart.service
 export class CartComponent implements OnInit {
   cartItemsCount$!: Observable<number>;
   cartItems$!: Observable<Product[]>;
+
+  totalCartPrice$!: Observable<number>;
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.cartItemsCount$ = this.cartService.getCartItemsLength();
     this.cartItems$ = this.cartService.getCartItems();
+    this.totalCartPrice$ = this.cartService.getTotalPrice();
   }
 
   buy() {

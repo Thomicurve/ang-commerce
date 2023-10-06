@@ -1,3 +1,6 @@
+::ng-deep {
+    @import 'src/assets/variables.scss';
+
     .cart-container {
         position: relative;
         cursor: pointer;
@@ -17,19 +20,101 @@
         align-items: center;
     }
 
-    li {
+    .footer-cart {
         display: flex;
-        justify-content: space-between;
-        padding: 5px 10px;
-        background-color: #000;
-        color: #fff;
-        margin-top: 2px;
+        align-items: center;
+        column-gap: 10px;
+        position: sticky;
+        z-index: 300;
+        bottom: 0px;
+        right: 0px;
+        width: 100%;
+        justify-content: flex-end;
+        padding: 10px 42px;
+        box-shadow: 3px -7px 23px -17px rgba(0,0,0,0.75);
+
+        &__buy {
+            background: $base-color-light;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     }
 
-    dialog {
-        width: 90%;
-        margin: 110px auto;
-        border-radius: 5px;
-        padding: 15px;
-        overflow-y: auto;
+    .cart-item {
+        display: grid;
+        grid-template-columns: 50px 100px 1fr 1fr 1fr;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5px 10px;
+        border-bottom: 1px solid #ccc;
+        margin-top: 2px;
+
+
+        &__image {
+            width: 50px;
+            height: 50px;
+        }
+
+        &__remove {
+            width: 20px;
+            background: none;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        &__price {
+            justify-self: flex-end;
+        }
     }
+
+
+    dialog {
+        padding: 1rem 3rem;
+        background: white;
+        max-height: 50vh;
+        min-height: 45vh;
+        overflow-y: auto;
+        width: 70%;
+        margin: 146px auto;
+        padding-top: 2rem;
+        border-radius: 10px;
+        border: 0;
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+        animation: fadeIn 1s ease both;
+        
+        .x {
+            filter: grayscale(1);
+            border: none;
+            background: none;
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            transition: ease filter, transform 0.3s;
+            cursor: pointer;
+            transform-origin: center;
+            &:hover {
+                filter: grayscale(0);
+                transform: scale(1.1);
+            }
+        }
+        h2 {
+            font-weight: 600;
+            font-size: 2rem;
+            padding-bottom: 1rem;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.3rem;
+            padding: 0.5rem 0;
+            a {
+                &:visited {
+                    color: rgb(var(--vs-primary));
+                }
+            }
+        }
+    }
+}
