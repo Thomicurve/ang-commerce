@@ -1,17 +1,17 @@
 <div class="product-card">
-  <div class="product-card__image">
-    <img
-      [src]="product.imageUrl"
-      [alt]="product.name">
+  <div [ngStyle]="{'background-image': 'url(' + product.imageUrl + ')'}" 
+    class="product-card__image">
   </div>
-  <div class="product-card__content">
-    <span class="product-card-title">{{product.name}}</span>
-    <p class="product-card-description">{{product.price | currency:'USD'}}</p>
-  </div>
-  <div class="product-card-actions">
-    <button (click)="addCartProduct()" class="btn btn-primary">Add to cart</button>
-    <button>
-      <a routerLink="/product/:id">View detail</a>
-    </button>
+  <div class="product-card__body">
+    <div class="product-card__content">
+      <span class="product-card-title">{{product.name}}</span>
+      <p class="product-card-description">{{product.price | currency:'USD'}}</p>
+    </div>
+    <div class="product-card-actions">
+      <button (click)="addCartProduct()" class="btn-primary">Add to cart</button>
+      <button class="">
+        <a routerLink="/product/:id">View detail</a>
+      </button>
+    </div>
   </div>
 </div>

@@ -1,33 +1,56 @@
 ::ng-deep {
+  @import 'src/assets/variables.scss';
+
   .product-card {
-    background: #fff;
     border-radius: 5px;
-    padding: 15px;
-    height: 300px;
-    width: 250px;
+    overflow: hidden;
+    width: 230px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 
     a {
       color: #000;
     }
 
     &__image {
-      img {
-        width: 200px;
-        height: 200px;
-      }
+      background-image: url('https://contentv2.tap-commerce.com/cover/original/9789877253146_1.jpg?id_com=1169');
+      background-size: cover;
+      width: 100%;
+      height: 200px;
+    }
+
+    &__body {
+      background: linear-gradient(to right, $base-color, $base-color-light) ;
+      color: #fff;
+      width: 100%;
+      padding: 10px 15px;
+      box-sizing: border-box;
     }
   }
 
   .product-card-actions {
     display: flex;
     column-gap: 10px;
+
+    .btn-primary {
+      background: $success-color;
+    }
+
     button {
       padding: 5px 10px;
+      cursor: pointer;
+      border: none;
+      font-weight: 500;
+      border-radius: 5px;
+      transition: filter 0.3s ease;
+      &:hover {
+        filter: brightness(0.9);
+      }
     }
+
   }
 
   .product-card-description {
@@ -41,4 +64,5 @@
     font-weight: 600;
     margin: 10px 0px;
   }
+  
 }
