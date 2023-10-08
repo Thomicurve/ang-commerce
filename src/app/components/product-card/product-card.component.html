@@ -10,7 +10,7 @@
     <div class="product-card-actions">
       <button (click)="addCartProduct()" class="btn-primary">Add to cart</button>
       <button class="">
-        <a routerLink="/product/:id">View detail</a>
+        <a [routerLink]="['/ang-commerce/' + product.id]">View detail</a>
       </button>
     </div>
   </div>

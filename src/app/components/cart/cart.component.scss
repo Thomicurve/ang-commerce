@@ -5,6 +5,11 @@
         position: relative;
         cursor: pointer;
     }
+
+    .cart-detail-container {
+        overflow-y: auto;
+        max-height: 30vh;
+    }
     .cart-count {
         position: absolute;
         top: -10px;
@@ -22,13 +27,14 @@
 
     .footer-cart {
         display: flex;
+        background-color: #fff;
         align-items: center;
         column-gap: 10px;
-        position: sticky;
+        width: 100%;
+        position: absolute;
         z-index: 300;
         bottom: 0px;
         right: 0px;
-        width: 100%;
         justify-content: flex-end;
         padding: 10px 42px;
         box-shadow: 3px -7px 23px -17px rgba(0,0,0,0.75);
@@ -52,6 +58,10 @@
         border-bottom: 1px solid #ccc;
         margin-top: 2px;
 
+        &__description {
+            overflow: hidden;
+            height: 55px;
+        }
 
         &__image {
             width: 50px;
@@ -71,15 +81,24 @@
         }
     }
 
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+        background: #000;
+        z-index: -100;
+    }
 
     dialog {
-        padding: 1rem 3rem;
         background: white;
         max-height: 50vh;
         min-height: 45vh;
-        overflow-y: auto;
         width: 70%;
         margin: 146px auto;
+        overflow-y: hidden;
         padding-top: 2rem;
         border-radius: 10px;
         border: 0;
@@ -105,6 +124,7 @@
             font-weight: 600;
             font-size: 2rem;
             padding-bottom: 1rem;
+            margin-left: 20px;
         }
         p {
             font-size: 1rem;

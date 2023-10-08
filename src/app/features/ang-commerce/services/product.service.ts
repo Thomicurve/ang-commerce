@@ -22,4 +22,11 @@ export class ProductService {
 
     return products;
   }
+
+  async getProductById(id: number): Promise<Product | undefined> {
+    let response = await fetch('../../../../assets/fake-api.json');
+    let { products }: ApiResponse = await response.json(); 
+
+    return products.find(p => p.id == id);
+  }
 }

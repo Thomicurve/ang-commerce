@@ -1,0 +1,21 @@
+<main *ngIf="product" class="product-detail-container">
+  <article [ngStyle]="{'background-image': 'url(' + product.imageUrl + ')'}"
+    class="product-photo">
+  </article>
+  <article class="product-info">
+    <h2>{{product.name}}</h2>
+    <p class="product-description">{{product.description}}</p>
+    <p class="product-price">{{product.price | currency}}</p>
+    <div class="product-actions">
+      <div class="quantity">
+        <label for="quantity">Quantity</label>
+        <input 
+          type="number" 
+          [(ngModel)]="productQuantity"
+          name="quantity" min="1"
+          [value]="productQuantity">
+      </div>
+      <button class="add-to-cart" (click)="addToCart()">Add to cart</button>
+    </div>
+  </article>
+</main>

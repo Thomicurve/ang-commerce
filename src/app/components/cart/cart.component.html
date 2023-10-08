@@ -15,17 +15,18 @@
                 <button class="cart-item__remove" (click)="removeItem(item)" aria-label="close">❌</button>
                 <img class="cart-item__image" [src]="item.imageUrl" [alt]="item.description">
                 <p>{{item.name}}</p>
-                <p>{{item.description}}</p>
+                <p class="cart-item__description">{{item.description}}</p>
                 <p class="cart-item__price">{{item.price | currency}}</p>
             </li>
         </ul>
-        <div class="footer-cart">
-            <p>Total: {{totalCartPrice$ | async | currency}}</p>
-            <button class="footer-cart__buy" (click)="buy()">Buy</button>
-        </div>
+    </div>
+    <div class="footer-cart">
+        <p>Total: {{totalCartPrice$ | async | currency}}</p>
+        <button class="footer-cart__buy" (click)="buy()">Buy</button>
     </div>
     <ng-template #noItems>
         <p>No items on cart</p>
     </ng-template>
-    <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+    <button onclick="dialog.close();" aria-label="close" class="x">❌</button>
+    <div (click)="dialog.close()" class="background"></div>
 </dialog>

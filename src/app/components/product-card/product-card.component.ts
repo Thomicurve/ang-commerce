@@ -1,5 +1,6 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { Product } from 'src/app/features/ang-commerce/interfaces/products.interface';
 import { CartService } from 'src/app/features/ang-commerce/services/cart.service';
 
@@ -8,7 +9,7 @@ import { CartService } from 'src/app/features/ang-commerce/services/cart.service
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
   standalone: true,
-  imports: [CurrencyPipe, CommonModule]
+  imports: [CurrencyPipe, CommonModule, RouterModule]
 })
 export class ProductCardComponent {
   @Input() product!: Product;
