@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../interfaces/products.interface';
 import { ProductFilter } from '../../interfaces/product-filter.interface';
-import { BehaviorSubject, debounceTime } from 'rxjs';
+import { BehaviorSubject, debounceTime, tap } from 'rxjs';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../interfaces/category.interface';
 
@@ -11,7 +11,7 @@ import { Category } from '../../interfaces/category.interface';
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.scss']
 })
-export class StoreComponent implements OnInit {
+export class StoreComponent implements OnInit, AfterViewInit {
 
   products: Product[] = [];
   categories: Category[] = [];
@@ -25,6 +25,10 @@ export class StoreComponent implements OnInit {
 
   constructor(private productService: ProductService, private categoryService: CategoryService) {}
 
+  ngAfterViewInit(): void {
+    this.filter.next({categoryId: 0, productName: ''});
+  }
+
   async getProductsFiltered(value = this.productFilter) {
     this.products = await this.productService.getAllProducts(value);    
     this.isLoading = false;
@@ -37,10 +41,10 @@ export class StoreComponent implements OnInit {
   async ngOnInit() {
     this.filter
     .pipe(
-      debounceTime(500)
+      tap(() => this.isLoading = true),
+      debounceTime(1000)
     )
     .subscribe((value) => {
-      this.isLoading = true;
       this.getProductsFiltered(value);
     })
 
