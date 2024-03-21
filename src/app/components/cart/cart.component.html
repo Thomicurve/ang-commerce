@@ -1,4 +1,4 @@
-<div (click)="dialog.show()" class="cart-container">
+<div (click)="showDialog = true" class="cart-container">
     <span class="material-symbols-outlined">
         shopping_cart
     </span>
@@ -7,27 +7,4 @@
     </span>
 </div>
 
-<dialog id="dialog" #dialog>
-    <h2>Cart detail</h2>
-    <div *ngIf="(cartItems$ | async)?.length; else noItems" class="cart-detail-container">
-        <ul>
-            <li class="cart-item" *ngFor="let item of cartItems$ | async">
-                <button class="cart-item__remove" (click)="removeItem(item)" aria-label="close">❌</button>
-                <img class="cart-item__image" [src]="item.imageUrl" [alt]="item.description">
-                <p>{{item.name}}</p>
-                <p>{{item.quantity}}</p>
-                <p class="cart-item__description">{{item.description}}</p>
-                <p class="cart-item__price">{{item.price | currency}}</p>
-            </li>
-        </ul>
-    </div>
-    <div class="footer-cart">
-        <p>Total: {{totalCartPrice$ | async | currency}}</p>
-        <button class="footer-cart__buy" (click)="buy()">Buy</button>
-    </div>
-    <ng-template #noItems>
-        <p>No items on cart</p>
-    </ng-template>
-    <button onclick="dialog.close();" aria-label="close" class="x">❌</button>
-    <div (click)="dialog.close()" class="background"></div>
-</dialog>
+<app-cart-modal class="cart-modal" (closeModal)="showDialog = false" *ngIf="showDialog"></app-cart-modal>

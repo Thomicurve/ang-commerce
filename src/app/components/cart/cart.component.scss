@@ -1,140 +1,29 @@
-::ng-deep {
-    @import 'src/assets/variables.scss';
+@import 'src/assets/variables.scss';
 
-    .cart-container {
-        position: relative;
-        cursor: pointer;
-    }
+.cart-modal {
+    position: absolute;
+    z-index: 10;
+    left: 0px;
+    width: 100%;
+}
 
-    .cart-detail-container {
-        overflow-y: auto;
-        max-height: 30vh;
-    }
-    .cart-count {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        background: red;
-        font-size: 10px;
-        color: #fff;
-        border-radius: 50%;
-        width: 15px;
-        height: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.cart-container {
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+}
 
-    .footer-cart {
-        display: flex;
-        background-color: #fff;
-        align-items: center;
-        column-gap: 10px;
-        width: 100%;
-        position: absolute;
-        z-index: 300;
-        bottom: 0px;
-        right: 0px;
-        justify-content: flex-end;
-        padding: 10px 42px;
-        box-shadow: 3px -7px 23px -17px rgba(0,0,0,0.75);
-
-        &__buy {
-            background: $base-color-light;
-            color: #fff;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    }
-
-    .cart-item {
-        display: grid;
-        grid-template-columns: 50px 100px 1fr 1fr 1fr;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 5px 10px;
-        border-bottom: 1px solid #ccc;
-        margin-top: 2px;
-
-        &__description {
-            overflow: hidden;
-            height: 55px;
-        }
-
-        &__image {
-            width: 50px;
-            height: 50px;
-        }
-
-        &__remove {
-            width: 20px;
-            background: none;
-            outline: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        &__price {
-            justify-self: flex-end;
-        }
-    }
-
-    .background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.8;
-        background: #000;
-        z-index: -100;
-    }
-
-    dialog {
-        background: white;
-        max-height: 50vh;
-        min-height: 45vh;
-        width: 70%;
-        margin: 146px auto;
-        overflow-y: hidden;
-        padding-top: 2rem;
-        border-radius: 10px;
-        border: 0;
-        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
-        animation: fadeIn 1s ease both;
-        
-        .x {
-            filter: grayscale(1);
-            border: none;
-            background: none;
-            position: absolute;
-            top: 15px;
-            right: 10px;
-            transition: ease filter, transform 0.3s;
-            cursor: pointer;
-            transform-origin: center;
-            &:hover {
-                filter: grayscale(0);
-                transform: scale(1.1);
-            }
-        }
-        h2 {
-            font-weight: 600;
-            font-size: 2rem;
-            padding-bottom: 1rem;
-            margin-left: 20px;
-        }
-        p {
-            font-size: 1rem;
-            line-height: 1.3rem;
-            padding: 0.5rem 0;
-            a {
-                &:visited {
-                    color: rgb(var(--vs-primary));
-                }
-            }
-        }
-    }
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    font-size: 10px;
+    color: #fff;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

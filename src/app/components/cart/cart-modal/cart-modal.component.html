@@ -1,0 +1,23 @@
+<dialog open id="dialog">
+    <h2>Cart detail</h2>
+    <div *ngIf="(cartItems$ | async)?.length; else noItems" class="cart-detail-container">
+        <ul>
+            <li class="cart-item" *ngFor="let item of cartItems$ | async">
+                <button class="cart-item__remove" (click)="removeItem(item)" aria-label="close">❌</button>
+                <img class="cart-item__image" [src]="item.imageUrl" [alt]="item.description">
+                <p>{{item.name}}</p>
+                <p>Amount: {{item.quantity}}</p>
+                <p class="cart-item__price">{{item.price | currency}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="footer-cart">
+        <p>Total: {{totalCartPrice$ | async | currency}}</p>
+        <button class="footer-cart__buy">Buy</button>
+    </div>
+    <ng-template #noItems>
+        <p class="no-items-cart">No items on cart</p>
+    </ng-template>
+    <button (click)="close()" aria-label="close" class="x">❌</button>
+    <div (click)="close()" class="background"></div>
+</dialog>
