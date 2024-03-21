@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/features/ang-commerce/interfaces/products.interface';
+import { CartProudct } from 'src/app/features/ang-commerce/interfaces/cart-product.interface';
 import { CartService } from 'src/app/features/ang-commerce/services/cart.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { CartService } from 'src/app/features/ang-commerce/services/cart.service
 })
 export class CartComponent implements OnInit {
   cartItemsCount$!: Observable<number>;
-  cartItems$!: Observable<Product[]>;
+  cartItems$!: Observable<CartProudct[]>;
 
   totalCartPrice$!: Observable<number>;
   constructor(private cartService: CartService) {}
@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
 
   }
 
-  removeItem(item: Product) {
+  removeItem(item: CartProudct) {
     this.cartService.removeCartItem(item);
   }
   
